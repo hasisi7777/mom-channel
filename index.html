@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘도 엄마랑 웃으며 삽니다 - 유튜브 채널 전략</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    line-height: 1.8;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    border-bottom: 3px solid #e94560;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(233,69,96,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(83,144,217,0.08) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+  }
+  .header h1 {
+    font-size: 2.8em;
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+  .header h1 span { color: #e94560; }
+  .header .tagline {
+    font-size: 1.2em;
+    color: #a0a0c0;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .header .badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin: 40px 0;
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    padding: 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .num {
+    background: #e94560;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ===== FLOW ===== */
+  .flow-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flow-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .flow-card:hover { background: rgba(255,255,255,0.08); }
+  .flow-card .emoji { font-size: 2em; margin-bottom: 8px; }
+  .flow-card .label { font-size: 0.9em; font-weight: 500; color: #fff; }
+  .flow-card .sub { font-size: 0.75em; color: #888; margin-top: 4px; }
+  .flow-arrow {
+    text-align: center;
+    color: #e94560;
+    font-size: 1.5em;
+    padding: 4px 0;
+  }
+
+  /* ===== CARDS ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .card h4 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .card p, .card li {
+    font-size: 0.9em;
+    color: #b0b0c0;
+    line-height: 1.7;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li::before { content: '• '; color: #e94560; }
+  .card .highlight {
+    color: #ffd700;
+    font-weight: 500;
+  }
+
+  /* ===== TABLE ===== */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 16px 0;
+  }
+  .styled-table th {
+    background: rgba(233,69,96,0.15);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid #e94560;
+  }
+  .styled-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #b0b0c0;
+  }
+  .styled-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 30px; margin: 16px 0; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #e94560, #0f3460);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: #e94560;
+    border-radius: 50%;
+    border: 2px solid #1a1a2e;
+  }
+  .timeline-item .time {
+    font-size: 0.8em;
+    color: #888;
+    font-weight: 500;
+  }
+  .timeline-item .content {
+    font-size: 0.9em;
+    color: #b0b0c0;
+    margin-top: 4px;
+  }
+  .timeline-item .content strong { color: #fff; }
+
+  /* ===== EMOTION BAR ===== */
+  .emotion-bar { margin: 16px 0; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+  }
+  .bar-label { width: 40px; font-size: 1.2em; text-align: center; }
+  .bar-track {
+    flex: 1;
+    height: 24px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #fff;
+    transition: width 0.5s;
+  }
+  .bar-fill.laugh { background: linear-gradient(90deg, #f7971e, #ffd200); width: 40%; }
+  .bar-fill.warm { background: linear-gradient(90deg, #e94560, #ff6b6b); width: 30%; }
+  .bar-fill.touch { background: linear-gradient(90deg, #667eea, #764ba2); width: 20%; }
+  .bar-fill.info { background: linear-gradient(90deg, #11998e, #38ef7d); width: 10%; }
+
+  /* ===== PHOTO FRAME ===== */
+  .photo-frame {
+    background: rgba(255,255,255,0.04);
+    border: 2px dashed rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: 16px 0;
+  }
+  .photo-frame .icon { font-size: 3em; margin-bottom: 8px; }
+  .photo-frame .desc { font-size: 0.85em; color: #888; }
+
+  /* ===== TIPS ===== */
+  .tip-box {
+    background: rgba(255,215,0,0.06);
+    border-left: 3px solid #ffd700;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .tip-box .tip-label {
+    font-size: 0.8em;
+    color: #ffd700;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .tip-box p { font-size: 0.9em; color: #b0b0c0; }
+
+  /* ===== DAY SCHEDULE ===== */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 4px 16px;
+    margin: 16px 0;
+  }
+  .schedule-grid .sg-time {
+    font-size: 0.8em;
+    color: #e94560;
+    font-weight: 600;
+    text-align: right;
+    padding: 6px 0;
+  }
+  .schedule-grid .sg-content {
+    font-size: 0.9em;
+    color: #b0b0c0;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .schedule-grid .sg-content strong { color: #fff; }
+  .schedule-grid .sg-free {
+    background: rgba(255,215,0,0.06);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 2px 0;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 60px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 40px;
+  }
+  .footer .big {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #fff;
+  }
+  .footer .small {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 12px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .header { padding: 50px 20px 40px; }
+    .header h1 { font-size: 1.8em; }
+    .section { padding: 24px 16px; }
+    .flow-container { grid-template-columns: repeat(2, 1fr); }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>오늘도 <span>엄마랑</span><br>웃으며 삽니다</h1>
+  <div class="tagline">"엄마는 잊어도 나는 기억한다 — 그래도 우리 잘 살아요"</div>
+  <div class="badge">🎬 유튜브 채널 전략 기획서 v2.0</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== 1. CHANNEL IDENTITY ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> 채널 정체성</div>
+    <div class="card-grid">
+      <div class="card">
+        <h4>🎯 핵심 메시지</h4>
+        <p>"치매 환자와의 일상 = 무조건 어둡고 슬프다?"<br><strong style="color:#fff;">NO! 밝고 재미있고 웃음있고 감동있고 슬픔도 있는</strong><br>인생의 진짜 맛은 달콤쌉싸름한 거니까.</p>
+      </div>
+      <div class="card">
+        <h4>👥 타겟 시청자</h4>
+        <ul>
+          <li>1순위: <strong style="color:#fff;">2030 여성</strong> (힐링+웃음 수요)</li>
+          <li>2순위: 치매 가족 돌보는 사람들</li>
+          <li>3순위: 노부모 생각나는 일반인</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>💡 차별점</h4>
+        <ul>
+          <li>❌ 전문 의학 채널 아님</li>
+          <li>❌ 눈물 자극 NO</li>
+          <li>✅ <strong style="color:#fff;">진짜 같은 진짜 일상</strong></li>
+          <li>✅ 돌보는 사람(형님)의 솔직한 마음</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. OVERALL FLOW ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> 전체 에피소드 구성</div>
+    <p style="color:#888; margin-bottom:20px; font-size:0.9em;">모든 영상은 아래 6단계 흐름을 기본 틀로 한다.</p>
+    
+    <div class="flow-container">
+      <div class="flow-card">
+        <div class="emoji">🎣</div>
+        <div class="label">오프닝 훅</div>
+        <div class="sub">"엄마, 나 누구게?"</div>
+      </div>
+      <div class="flow-card">
+        <div class="emoji">💔</div>
+        <div class="label">과거 회상</div>
+        <div class="sub">초기 증상 → 아버지</div>
+      </div>
+      <div class="flow-card">
+        <div class="emoji">😊</div>
+        <div class="label">일상 Vlog</div>
+        <div class="sub">아침루틴, 산책</div>
+      </div>
+      <div class="flow-card">
+        <div class="emoji">🍳</div>
+        <div class="label">요리 장면</div>
+        <div class="sub">엄마 해드리는 밥</div>
+      </div>
+      <div class="flow-card">
+        <div class="emoji">📝</div>
+        <div class="label">꿀팁/정보</div>
+        <div class="sub">돌봄 팁, 센터 정보</div>
+      </div>
+      <div class="flow-card">
+        <div class="emoji">💤</div>
+        <div class="label">마무리</div>
+        <div class="sub">코고는 소리 엔딩</div>
+      </div>
+    </div>
+
+    <!-- Detail: Opening Hook -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">🎣 ① 오프닝 훅 (0:00~1:00)</h4>
+    <div class="tip-box">
+      <div class="tip-label">🔥 시청자 낚시 필살기</div>
+      <p>
+        <strong style="color:#fff;">형님:</strong> "엄마~ 나 누구게?"<br>
+        <strong style="color:#ffd700;">엄마:</strong> "오빠~ 뭐 해?" 😊<br>
+        <strong style="color:#fff;">형님:</strong> "하시시는 어디 있어요?"<br>
+        <strong style="color:#ffd700;">엄마:</strong> "그 아들은... 지금 어디 있는지 모르겠다"
+      </p>
+      <p style="margin-top:8px; color:#888;">→ 엄마가 아들을 아들로 못 알아봄. 시청자 "?? 뭐지?" 하고 빠져든다.</p>
+    </div>
+
+    <!-- Detail: Past -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">💔 ② 과거 회상 — "엄마가 처음 이상해지기 시작했다"</h4>
+    <p style="font-size:0.9em; color:#888; margin-bottom:12px;">연출: 흑백/세피아 필터 + 형님 나레이션 + 잔잔한 BGM</p>
+    
+    <div class="card-grid">
+      <div class="card">
+        <h4>🕊️ 아버지 돌아가심</h4>
+        <p>아버지가 돌아가시면서 엄마의 치매 증상이 <strong style="color:#fff;">급격히 악화</strong>됨. 외로움 + 상실감이 치매를 가속화.</p>
+      </div>
+      <div class="card">
+        <h4>🔍 초기 증상 6가지</h4>
+        <ul>
+          <li><strong style="color:#ffd700;">✍️ 가스 검침 숫자</strong> (📸 사진O) — 1월 1001 → 11월 19 → 첫 전조증상</li>
+          <li><strong style="color:#ff6b6b;">🔥 냉면그릇</strong> — 알루미늄 그릇 가스불 위에... 그릇 반쯤 그을림</li>
+          <li><strong style="color:#667eea;">😢 창밖 응시</strong> — 항상 창밖 보며 울음</li>
+          <li><strong style="color:#38ef7d;">📱 카톡/전화</strong> — 단톡 못 쓰겠다고, 전화도 못 검</li>
+          <li><strong style="color:#f7971e;">🧮 계산 불가</strong></li>
+          <li><strong style="color:#e94560;">😭 울음 증가</strong></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>📋 더 심해진 증상들</h4>
+        <ul>
+          <li>🍳 <strong>코딩 후라이팬</strong> — 후라이팬 태우고 철수세미로 박박</li>
+          <li>🍽️ <strong>설거지 반복</strong> — 닦은 거 또 닦고 또 닦고</li>
+          <li>🩸 <strong>귀 피나는 장면</strong> — 말을 계속 반복 설명해야 알아들음</li>
+          <li>🗣️ <strong>지시 팁 발견</strong> — 길게 말하면 NO, 짧고 강하게 YES</li>
+          <li>🥱 <strong>잠 안 주무실 때</strong> — 새벽 3~4시까지 헛소리+돌아다님</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>💭 형님의 당시 심정</h4>
+        <p style="font-style:italic; color:#888;">"설마 나에게? 이게 나에게?<br>정말 안일하게 생각하며 살았다.<br>치매? 우울증? 공황장애?<br>이런 게 나에게? 설마?"</p>
+        <p style="margin-top:8px; color:#888;">📞 <em>"지금 엄마가 살아계신데도 이젠 내 전화기에 엄마라고 뜨는 전화는 없겠네"</em> 😢</p>
+      </div>
+    </div>
+
+    <!-- Detail: Present -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">😊 ③ 현재 일상 브이로그</h4>
+    <p style="font-size:0.9em; color:#888; margin-bottom:12px;">과거의 아픔 → 현재의 적응과 웃음. 밝고 따뜻하게.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h4>🌅 EP.1 아침 루틴</h4>
+        <ul>
+          <li>오프닝 훅 → 기상 → 같이 양치</li>
+          <li>씻기기(머리감기+세수) → 옷 입히기</li>
+          <li>드라이기+로션 → 아침식사(두유+토스트)</li>
+          <li>주간보호센터 차에 태워보내기</li>
+          <li>혼자 남아 빨래+커피 → "그래도 해냈다"</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>❤️ 일상 소재들</h4>
+        <ul>
+          <li>🥇 <strong>설거지 같이 하기</strong> — 엄마 최애 활동</li>
+          <li>🧺 빨래개기</li>
+          <li>🚶 동네 산책</li>
+          <li>🚗 주간보호센터 픽업</li>
+          <li>💤 <strong>엄마 코고는 소리</strong> — 형님 힐링음악 🥲</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Detail: Cooking -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">🍳 ④ 요리 장면</h4>
+    <div class="card" style="margin-bottom:12px;">
+      <ul>
+        <li>📸 레시피 <strong style="color:#fff;">8개</strong> 보유 중</li>
+        <li>🎥 4K <strong style="color:#fff;">60fps</strong> 촬영 (요리 장면)</li>
+        <li>🛒 마트에서 재료 고르는 장면 → 요리 → 엄마 맛있게 먹는 표정</li>
+        <li>😅 요리 실패담 = 웃음 포인트</li>
+      </ul>
+    </div>
+
+    <!-- Detail: Tips -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">📝 ⑤ 꿀팁 / 정보</h4>
+    <div class="card-grid">
+      <div class="card">
+        <h4>🧑‍⚕️ 치매 돌봄 팁</h4>
+        <ul>
+          <li><strong>말 걸기:</strong> 길게 설명 NO. 짧고 강하게!</li>
+          <li><strong>집중 유도:</strong> 뭔가 하게 던져주기 (가만히 있는 것보다 훨씬 좋음)</li>
+          <li><strong>생신:</strong> 내가 좋아하는 음식 말고 <strong style="color:#ffd700;">엄마가 좋아하는 음식</strong>으로</li>
+          <li><strong>설거지 효과:</strong> 엄마 집중력+자신감 UP 🥇</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🚐 주간보호센터 정보</h4>
+        <ul>
+          <li>🚗 집 앞까지 차가 와서 데려다줌 (08:20~08:30)</li>
+          <li>🕐 오전 출발 → 오후 16:30~17:00 귀가</li>
+          <li>😥 <strong>처음엔 안 보내려고 했음</strong> — 미안하고 불안했는데... 지금은 꼭 필요</li>
+          <li>😊 엄마도 사회생활, 나도 쉬는 시간 → <strong style="color:#ffd700;">윈윈</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Detail: Ending -->
+    <h4 style="color:#fff; margin-top:28px; margin-bottom:12px;">💤 ⑥ 마무리 — "그래도 우리 잘 살아요"</h4>
+    <div class="card">
+      <p>검은 화면 → 흰 글씨: <em style="color:#888;">"오늘도… 그래도…"</em><br>→ <strong style="color:#ffd700;">엄마 코고는 소리</strong> 페이드인 🎵 → 다음화 예고</p>
+    </div>
+  </div>
+
+  <!-- ===== 3. EMOTION BALANCE ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> 웃픔 밸런스</div>
+    <p style="color:#888; margin-bottom:16px; font-size:0.9em;">100% 행복은 가짜 같고, 100% 슬픔은 보기 싫다. 형님 채널은 60% 웃음, 40% 감동.</p>
+    <div class="emotion-bar">
+      <div class="bar-row">
+        <div class="bar-label">😂</div>
+        <div class="bar-track"><div class="bar-fill laugh">웃음 40%</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">😊</div>
+        <div class="bar-track"><div class="bar-fill warm">따뜻함 30%</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">😭</div>
+        <div class="bar-track"><div class="bar-fill touch">감동/슬픔 20%</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">📝</div>
+        <div class="bar-track"><div class="bar-fill info">정보 10%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. MORNING ROUTINE TIMELINE ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> EP.1 아침 루틴 상세</div>
+    <p style="color:#888; margin-bottom:16px; font-size:0.9em;">기상부터 엄마 출근까지 전 과정 — 약 10~15분 영상</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">🎣 오프닝 훅 (0:00~1:00)</div>
+        <div class="content">"엄마, 나 누구게?" → "오빠~" → 정적 → "그래도 아침은 한다"</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">🛏️ 07:00 — 기상</div>
+        <div class="content">알람 끄고 엄마 방으로. 코고는 소리로 오프닝하면 웃음포인트</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">🪥 — 같이 양치</div>
+        <div class="content">거울 앞에 나란히. 엄마 거품 묻히는 표정 클로즈업 😂</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">🚿 — 엄마 씻기기</div>
+        <div class="content">머리감기 + 세수. 뒷모습 위주, 손길 클로즈업</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">👗 — 옷 갈아입히기</div>
+        <div class="content">팬티부터 새로. 양말 신겨주는 손길 = 감동 포인트</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">💨 — 드라이기 + 로션</div>
+        <div class="content">형님이 직접 엄마 머리 말려줌. 매일 하는 일</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">🍞 08:00~ — 아침식사</div>
+        <div class="content">두유+토스트. 엄마 맛있게 먹는 표정 클로즈업</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">🚐 08:20~08:30 — 출근</div>
+        <div class="content">차 왔다 → 신발 신겨드림 → 차 타는 엄마 → 떠나는 차 바라보는 형님 😢</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">☕ 08:40~ — 빨래+커피</div>
+        <div class="content">혼자 남아 빨래 돌리고 커피 한 잔. 엔딩: "오늘도 해냈다"</div>
+      </div>
+    </div>
+
+    <h4 style="color:#fff; margin-top:24px; margin-bottom:12px;">🎯 썸네일 추천</h4>
+    <div class="card-grid">
+      <div class="card">
+        <div class="photo-frame">
+          <div class="icon">🖼️</div>
+          <div class="desc"><strong style="color:#ffd700;">🔥 A안 (최고 추천)</strong><br>엄마가 "오빠~" 하는 표정<br>+ 자막: "엄마가 날 오빠라 부른다"</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="photo-frame">
+          <div class="icon">🖼️</div>
+          <div class="desc"><strong>B안</strong><br>형님이 엄마 머리 말려주는 모습<br>+ 자막: "엄마 아침 준비 전과정"</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="photo-frame">
+          <div class="icon">🖼️</div>
+          <div class="desc"><strong>C안</strong><br>엄마 차 타는 뒷모습<br>+ 자막: "엄마 출근시키는 중"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. DAILY SCHEDULE ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> 형님의 하루 일정</div>
+    
+    <div class="schedule-grid">
+      <div class="sg-time">07:00</div>
+      <div class="sg-content">⏰ <strong>기상</strong> — 엄마랑 같이 일어나기</div>
+      <div class="sg-time">07:00~</div>
+      <div class="sg-content">🪥 <strong>같이 양치 + 엄마 씻기기</strong> (머리감기, 세수)</div>
+      <div class="sg-time"></div>
+      <div class="sg-content">👗 <strong>옷 갈아입히기</strong> (팬티~양말까지 새로)</div>
+      <div class="sg-time"></div>
+      <div class="sg-content">💨 <strong>드라이기 + 로션</strong> (형님이 직접)</div>
+      <div class="sg-time">08:00</div>
+      <div class="sg-content">🍞 <strong>아침 차려드림</strong> (두유+토스트)</div>
+      <div class="sg-time">08:20~30</div>
+      <div class="sg-content">🚐 <strong>주간보호센터 차에 태워보내기</strong></div>
+      <div class="sg-time">08:40</div>
+      <div class="sg-content">🧺 <strong>빨래 돌리기</strong> + ☕ 모닝커피</div>
+      <div class="sg-time">~10:00</div>
+      <div class="sg-content">🧹 빨래 널기 + 집 청소/정리</div>
+      <div class="sg-time"><strong style="color:#ffd700;">11:00 ~ 16:30</strong></div>
+      <div class="sg-content sg-free"><strong style="color:#ffd700;">⭐ 자유시간 (5시간 30분)</strong><br>
+        └ 🎬 유튜브 편집/기획 (Vrew)<br>
+        └ 📊 차트 분석 / 코인<br>
+        └ 🛒 장보기 / 외출<br>
+        └ <em style="color:#888;">이 시간이 전략적 자산!</em></div>
+      <div class="sg-time">16:30~17:00</div>
+      <div class="sg-content">🏠 <strong>엄마 귀가</strong></div>
+      <div class="sg-time">17:00~</div>
+      <div class="sg-content">🚶 동네 산책 or 휴식</div>
+      <div class="sg-time">18:00~19:00</div>
+      <div class="sg-content">🍚 <strong>저녁식사</strong> (+ 촬영)</div>
+      <div class="sg-time">19:00~</div>
+      <div class="sg-content">📱 엄마 유튜브 보시다가 취침 →<br>💻 나는 컴퓨터 (차트/유튜브)</div>
+      <div class="sg-time">🌙</div>
+      <div class="sg-content"><strong style="color:#ffd700;">💤 엄마 코고는 소리 = 힐링 음악</strong> 😭💕</div>
+    </div>
+  </div>
+
+  <!-- ===== 6. PHOTO ARCHIVE ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">6</span> 📸 보관 자료</div>
+    <div class="card-grid">
+      <div class="card">
+        <h4>📄 가스 검침표</h4>
+        <div class="photo-frame">
+          <div class="icon">📸</div>
+          <div class="desc">1월 1001 → 11월 19, 12월 52<br>글씨가 점점 알아볼 수 없게 변함<br><em style="color:#888;">~가장 처음 발견한 전조증상~</em></div>
+        </div>
+      </div>
+      <div class="card">
+        <h4>📁 저장된 파일들</h4>
+        <ul>
+          <li>1화_엄마의처음.md</li>
+          <li>2화_형님의하루.md</li>
+          <li>3화_형님의후회.md</li>
+          <li>4화_음식물쓰레기.md</li>
+          <li>5화_전원주치매.md</li>
+          <li>6화_연출아이디어.md</li>
+          <li><strong style="color:#ffd700;">아침루틴_영상기획.md</strong> ⭐</li>
+          <li><strong style="color:#ffd700;">유튜브_전략기획.md</strong> ⭐</li>
+          <li>레시피모음.md</li>
+          <li>메모장_아이디어덤프.md</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 7. SHOOTING TIPS ===== -->
+  <div class="section">
+    <div class="section-title"><span class="num">7</span> 🎬 촬영 & 편집 가이드</div>
+    <div class="card-grid">
+      <div class="card">
+        <h4>📱 촬영 설정</h4>
+        <ul>
+          <li>해상도: <strong style="color:#fff;">4K (3840×2160)</strong></li>
+          <li>프레임: <strong style="color:#fff;">30fps</strong> (일반) / <strong style="color:#fff;">60fps</strong> (요리)</li>
+          <li>조명: <strong style="color:#ffd700;">전구색 조명</strong> 필수 (형광등 X)</li>
+          <li>자막: <strong style="color:#fff;">Vrew(브루)</strong> 자동 생성</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🎥 촬영 각도</h4>
+        <ul>
+          <li><strong>핸드헬드</strong> — 폰 들고 자연스럽게</li>
+          <li><strong>삼각대</strong> — 식탁/세면대 위에 거치</li>
+          <li><strong>1인칭</strong> — 시청자가 형님이 된 느낌</li>
+          <li><strong>거치형</strong> — 방 구석에 고정해두고 자연스러운 모습 캐치</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>⚠️ 주의사항</h4>
+        <ul>
+          <li>❌ 엄마 속옷/나체 노출 금지 (각도+모자이크)</li>
+          <li>❌ 타인 얼굴(기사님) 무조건 모자이크</li>
+          <li>✅ 엄마 얼굴 — 형님 판단</li>
+          <li>✅ 욕실 장면 — 뒷모습 or 김이 서린 유리문 뒤</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>✂️ 편집 방향</h4>
+        <ul>
+          <li>템포: <strong style="color:#fff;">경쾌하게</strong> (컷 빠르게)</li>
+          <li>BGM: 잔잔+통통튀는 음악 섞기</li>
+          <li>효과음: 웃음소리, 귀여운 효과음</li>
+          <li>자막: 이모지 활용 😊😂💕☀️</li>
+          <li>전환: 검은화면+흰글씨 설명</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div class="big">"엄마는 잊어도 나는 기억한다"</div>
+    <div class="small">🤖 총괄기획: Hermes Agent | 📅 최종 업데이트: 2026.05.19</div>
+  </div>
+
+</div>
+
+</body>
+</html>
