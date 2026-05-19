@@ -71,6 +71,62 @@
   /* ===== CONTAINER ===== */
   .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
+  /* ===== STICKY NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,26,46,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(233,69,96,0.2);
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .sticky-nav .nav-btn {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 6px 14px;
+    color: #b0b0c0;
+    font-size: 0.8em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .sticky-nav .nav-btn:hover {
+    background: rgba(233,69,96,0.15);
+    border-color: #e94560;
+    color: #fff;
+  }
+  .sticky-nav .nav-btn .nb-num {
+    background: rgba(233,69,96,0.2);
+    border-radius: 6px;
+    padding: 0 6px;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #e94560;
+  }
+  .sticky-nav .nav-btn:hover .nb-num {
+    background: #e94560;
+    color: #fff;
+  }
+
+  /* section scroll offset */
+  .section { scroll-margin-top: 70px; }
+
   /* ===== SECTION ===== */
   .section {
     margin: 40px 0;
@@ -345,10 +401,22 @@
   <div class="badge">🎬 유튜브 채널 전략 기획서 v2.0</div>
 </div>
 
+<!-- ===== STICKY NAV ===== -->
+<div class="sticky-nav">
+  <a class="nav-btn" href="#s1"><span class="nb-num">1</span> 정체성</a>
+  <a class="nav-btn" href="#s2"><span class="nb-num">2</span> 구성</a>
+  <a class="nav-btn" href="#s3"><span class="nb-num">3</span> 밸런스</a>
+  <a class="nav-btn" href="#s4"><span class="nb-num">4</span> 아침루틴</a>
+  <a class="nav-btn" href="#s5"><span class="nb-num">5</span> 하루일정</a>
+  <a class="nav-btn" href="#s6"><span class="nb-num">6</span> 자료</a>
+  <a class="nav-btn" href="#s7"><span class="nb-num">7</span> 촬영</a>
+  <a class="nav-btn" href="#s8"><span class="nb-num">8</span> AI영화</a>
+</div>
+
 <div class="container">
 
   <!-- ===== 1. CHANNEL IDENTITY ===== -->
-  <div class="section">
+  <div class="section" id="s1">
     <div class="section-title"><span class="num">1</span> 채널 정체성</div>
     <div class="card-grid">
       <div class="card">
@@ -376,7 +444,7 @@
   </div>
 
   <!-- ===== 2. OVERALL FLOW ===== -->
-  <div class="section">
+  <div class="section" id="s2">
     <div class="section-title"><span class="num">2</span> 전체 에피소드 구성</div>
     <p style="color:#888; margin-bottom:20px; font-size:0.9em;">모든 영상은 아래 6단계 흐름을 기본 틀로 한다.</p>
     
@@ -531,7 +599,7 @@
   </div>
 
   <!-- ===== 3. EMOTION BALANCE ===== -->
-  <div class="section">
+  <div class="section" id="s3">
     <div class="section-title"><span class="num">3</span> 웃픔 밸런스</div>
     <p style="color:#888; margin-bottom:16px; font-size:0.9em;">100% 행복은 가짜 같고, 100% 슬픔은 보기 싫다. 형님 채널은 60% 웃음, 40% 감동.</p>
     <div class="emotion-bar">
@@ -555,7 +623,7 @@
   </div>
 
   <!-- ===== 4. MORNING ROUTINE TIMELINE ===== -->
-  <div class="section">
+  <div class="section" id="s4">
     <div class="section-title"><span class="num">4</span> EP.1 아침 루틴 상세</div>
     <p style="color:#888; margin-bottom:16px; font-size:0.9em;">기상부터 엄마 출근까지 전 과정 — 약 10~15분 영상</p>
     
@@ -622,7 +690,7 @@
   </div>
 
   <!-- ===== 5. DAILY SCHEDULE ===== -->
-  <div class="section">
+  <div class="section" id="s5">
     <div class="section-title"><span class="num">5</span> 형님의 하루 일정</div>
     
     <div class="schedule-grid">
@@ -662,7 +730,7 @@
   </div>
 
   <!-- ===== 6. PHOTO ARCHIVE ===== -->
-  <div class="section">
+  <div class="section" id="s6">
     <div class="section-title"><span class="num">6</span> 📸 보관 자료</div>
     <div class="card-grid">
       <div class="card">
@@ -691,7 +759,7 @@
   </div>
 
   <!-- ===== 7. SHOOTING TIPS ===== -->
-  <div class="section">
+  <div class="section" id="s7">
     <div class="section-title"><span class="num">7</span> 🎬 촬영 & 편집 가이드</div>
     <div class="card-grid">
       <div class="card">
@@ -735,7 +803,7 @@
   </div>
 
   <!-- ===== 8. AI MOVIE INSERTION ===== -->
-  <div class="section">
+  <div class="section" id="s8">
     <div class="section-title"><span class="num">8</span> 🎬 AI 영화 끼어들기 — 콘텐츠 아이디어</div>
     <p style="color:#888; margin-bottom:16px; font-size:0.9em;">출처: sliq_ai / @hy_st — AI로 영화 속에 내가 들어가는 숏폼 콘텐츠</p>
 
