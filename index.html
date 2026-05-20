@@ -69,34 +69,38 @@
   }
 
   /* ===== CONTAINER ===== */
-  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px 0 80px; }
 
   /* ===== STICKY NAV ===== */
   .sticky-nav {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 100;
     background: rgba(26,26,46,0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(233,69,96,0.2);
-    padding: 8px 12px;
+    border: 1px solid rgba(233,69,96,0.2);
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 8px;
     display: flex;
+    flex-direction: column;
     gap: 4px;
-    overflow-x: auto;
+    overflow-y: auto;
     scrollbar-width: none;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    max-height: 80vh;
   }
   .sticky-nav::-webkit-scrollbar { display: none; }
   .sticky-nav .nav-btn {
     flex-shrink: 0;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 6px 14px;
+    border-radius: 8px;
+    padding: 6px 10px;
     color: #b0b0c0;
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
@@ -105,6 +109,7 @@
     align-items: center;
     gap: 4px;
     font-family: 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
   }
   .sticky-nav .nav-btn:hover {
     background: rgba(233,69,96,0.15);
@@ -388,7 +393,23 @@
     .header h1 { font-size: 1.8em; }
     .section { padding: 24px 16px; }
     .flow-container { grid-template-columns: repeat(2, 1fr); }
-    .card-grid { grid-template-columns: 1fr; }
+    .card-grid { display: flex; flex-direction: column; gap: 14px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    .sticky-nav {
+      position: fixed;
+      left: 0;
+      top: auto;
+      bottom: 0;
+      transform: none;
+      width: 100%;
+      flex-direction: row;
+      overflow-x: auto;
+      border-radius: 0;
+      border: none;
+      border-top: 1px solid rgba(233,69,96,0.2);
+      padding: 6px 8px;
+      max-height: none;
+    }
   }
 </style>
 </head>
